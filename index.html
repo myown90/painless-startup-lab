@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>失敗しても痛くないミニマム起業 — painless startup lab</title>
 <meta name="description" content="「いつか起業したい」を踏み出せないあなたへ。原因はひとつ、失敗が怖いから。だから最初から、失敗しても痛くないように設計しました。本業を辞めず、初期投資ゼロ、3ヶ月で撤退判断できるミニマム起業の型。">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="shortcut icon" type="image/png" href="/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/logo.png">
+<meta name="theme-color" content="#d97757">
+<meta property="og:title" content="失敗しても痛くないミニマム起業 — painless startup lab">
+<meta property="og:description" content="本業を辞めず、初期投資ゼロ、3ヶ月で撤退判断できるミニマム起業の型。">
+<meta property="og:image" content="/logo.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -105,18 +116,16 @@ nav {
   color: var(--ink);
 }
 .nav-logo {
-  width: 30px; height: 30px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-d) 100%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-family: var(--font-en);
-  font-weight: 800;
-  font-size: 0.94rem;
-  letter-spacing: -0.04em;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 6px 16px rgba(217,119,87,0.32);
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  background-image: url('/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  text-indent: -9999px;
+  overflow: hidden;
 }
 .nav-brand-sub {
   font-family: var(--font-en);
@@ -1352,7 +1361,7 @@ footer {
 <nav>
   <div class="nav-wrap">
     <a href="#hero" class="nav-brand">
-      <span class="nav-logo">P</span>
+      <span class="nav-logo" role="img" aria-label="painless startup lab logo"></span>
       <span>失敗しても痛くないミニマム起業</span>
       <span class="nav-brand-sub">painless startup lab</span>
     </a>
@@ -1822,7 +1831,7 @@ footer {
 <footer>
   <div class="foot-wrap">
     <div class="foot-brand">
-      <span class="nav-logo">P</span>
+      <span class="nav-logo" role="img" aria-label="painless startup lab logo"></span>
       <div>
         失敗しても痛くないミニマム起業
         <em>painless startup lab · est. 2026</em>
