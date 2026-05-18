@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>失敗しても痛くないミニマム起業 — painless startup lab</title>
+<meta name="description" content="「いつか起業したい」を踏み出せないあなたへ。原因はひとつ、失敗が怖いから。だから最初から、失敗しても痛くないように設計しました。本業を辞めず、初期投資ゼロ、3ヶ月で撤退判断できるミニマム起業の型。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* surfaces */
+  --bg:           #faf9f0;
+  --bg-2:         #f4f1e3;
+  --surface:      #ffffff;
+  --surface-2:    #edeadd;
+  --surface-3:    #e3e0d6;
+
+  /* text */
+  --ink:          #1a1a1a;
+  --ink-2:        #55524e;
+  --ink-3:        #8a8681;
+  --ink-4:        #b8b3aa;
+
+  /* lines */
+  --line:         #e3e0d6;
+  --line-soft:    rgba(26,26,26,0.06);
+
+  /* brand */
+  --brand:        #d97757;
+  --brand-d:      #bf6347;
+  --brand-l:      #ee9376;
+  --brand-soft:   rgba(217,119,87,0.10);
+  --brand-glow:   rgba(217,119,87,0.16);
+
+  /* accents */
+  --warn:         #c08830;
+  --night:        #1a1a1a;
+  --night-2:      #262524;
+
+  /* fonts */
+  --font-ja:      'Noto Sans JP', system-ui, sans-serif;
+  --font-en:      'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* shadows */
+  --shadow-sm:    0 1px 2px rgba(26,26,26,0.04);
+  --shadow:       0 1px 3px rgba(26,26,26,0.05), 0 4px 12px rgba(26,26,26,0.04);
+  --shadow-md:    0 4px 10px rgba(26,26,26,0.06), 0 12px 28px rgba(26,26,26,0.06);
+  --shadow-lg:    0 10px 24px rgba(26,26,26,0.08), 0 22px 48px rgba(26,26,26,0.08);
+
+  --radius:       12px;
+  --radius-lg:    16px;
+  --radius-xl:    24px;
+
+  --ease:         cubic-bezier(.22,1,.36,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ja);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,249,240,0.78);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.9rem clamp(1.2rem, 4vw, 2.4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-ja);
+  font-size: 0.96rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.nav-logo {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-d) 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: 0.94rem;
+  letter-spacing: -0.04em;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 6px 16px rgba(217,119,87,0.32);
+}
+.nav-brand-sub {
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-ja);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  transition: color 0.18s var(--ease);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--ink);
+  color: white;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  font-family: var(--font-ja);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s var(--ease), transform 0.18s var(--ease), color 0.2s var(--ease);
+}
+.nav-cta:hover { background: var(--brand); border-color: var(--brand); transform: translateY(-1px); }
+.nav-cta svg { width: 14px; height: 14px; }
+@media (max-width: 820px) { .nav-links, .nav-brand-sub { display: none; } }
+
+/* ─── SECTION SHARED ─── */
+section {
+  padding: clamp(4.5rem, 9vw, 7.5rem) clamp(1.2rem, 4vw, 2.4rem);
+}
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.wrap-narrow {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: var(--brand-soft);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.4rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.h-title {
+  font-family: var(--font-ja);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.4vw, 3.2rem);
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+.h-title .brand { color: var(--brand); }
+.lead {
+  font-family: var(--font-ja);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.95;
+  color: var(--ink-2);
+  max-width: 38rem;
+}
+
+/* ─── HERO ─── */
+#hero {
+  position: relative;
+  padding-top: clamp(7rem, 11vw, 9rem);
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 60vw; aspect-ratio: 1;
+  background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; left: -10%;
+  width: 50vw; aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(192,136,48,0.12) 0%, transparent 60%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.hero-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (max-width: 920px) { .hero-wrap { grid-template-columns: 1fr; } }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem 0.4rem 0.5rem;
+  font-family: var(--font-ja);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-bottom: 1.6rem;
+  box-shadow: var(--shadow-sm);
+}
+.hero-badge .dot {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--brand-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 0.74rem;
+}
+.hero-title {
+  font-family: var(--font-ja);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.6rem;
+}
+.hero-title .accent {
+  background: linear-gradient(180deg, transparent 60%, var(--brand-soft) 60%);
+  color: var(--brand);
+  padding: 0 0.06em;
+}
+.hero-sub {
+  font-family: var(--font-ja);
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.95;
+  color: var(--ink-2);
+  max-width: 32rem;
+  margin-bottom: 2rem;
+}
+.hero-sub strong {
+  color: var(--brand-d);
+  font-weight: 700;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.2rem;
+}
+.hero-pill {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  font-family: var(--font-ja);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.hero-pill svg { width: 14px; height: 14px; color: var(--brand); }
+.hero-cta {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--brand);
+  color: white;
+  border: 1px solid var(--brand);
+  border-radius: var(--radius);
+  padding: 0.95rem 1.5rem;
+  font-family: var(--font-ja);
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 6px 14px rgba(217,119,87,0.28), 0 1px 0 rgba(255,255,255,0.3) inset;
+  transition: background 0.2s var(--ease), transform 0.18s var(--ease), box-shadow 0.2s var(--ease);
+}
+.btn-primary:hover {
+  background: var(--brand-d);
+  border-color: var(--brand-d);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(217,119,87,0.32), 0 1px 0 rgba(255,255,255,0.3) inset;
+}
+.btn-primary svg { width: 16px; height: 16px; transition: transform 0.18s var(--ease); }
+.btn-primary:hover svg { transform: translateX(2px); }
+.btn-secondary {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.95rem 1.4rem;
+  font-family: var(--font-ja);
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s var(--ease), transform 0.18s var(--ease), border-color 0.2s var(--ease);
+}
+.btn-secondary:hover {
+  background: var(--surface-2);
+  border-color: var(--surface-3);
+  transform: translateY(-1px);
+}
+
+/* HERO right card */
+.hero-viz {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  padding: 2rem 2rem;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.hero-viz::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-l) 50%, var(--warn) 100%);
+}
+.viz-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.8rem;
+}
+.viz-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--brand);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: var(--brand-soft);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+.viz-dots {
+  display: flex; gap: 0.35rem;
+}
+.viz-dots span {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--surface-3);
+}
+.viz-dots span:first-child { background: var(--brand); }
+
+.viz-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+.viz-stat {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 0.9rem;
+  text-align: center;
+}
+.viz-stat-num {
+  font-family: var(--font-en);
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--brand);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.viz-stat-num small {
+  font-size: 0.6em;
+  color: var(--ink-3);
+  font-weight: 600;
+  margin-left: 0.1em;
+}
+.viz-stat-label {
+  font-family: var(--font-ja);
+  font-size: 0.72rem;
+  color: var(--ink-3);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.viz-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-ja);
+  font-size: 0.88rem;
+}
+.viz-row:last-child { border-bottom: none; }
+.viz-row .k { color: var(--ink-2); font-weight: 500; }
+.viz-row .v {
+  font-family: var(--font-mono);
+  color: var(--brand);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--brand-soft);
+  padding: 0.18rem 0.6rem;
+  border-radius: 6px;
+}
+
+/* ─── NEED ─── */
+#need {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.need-q {
+  font-family: var(--font-ja);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 2.4rem;
+}
+.need-q .brand { color: var(--brand); }
+.need-q .qmark {
+  display: inline-block;
+  font-family: var(--font-en);
+  font-style: italic;
+  color: var(--brand);
+  font-size: 0.55em;
+  font-weight: 700;
+  vertical-align: 0.4em;
+  margin-right: 0.3em;
+  background: var(--brand-soft);
+  padding: 0 0.45em;
+  border-radius: 8px;
+}
+.need-body {
+  font-family: var(--font-ja);
+  font-size: clamp(1rem, 1.3vw, 1.08rem);
+  line-height: 2;
+  color: var(--ink-2);
+  max-width: 38rem;
+}
+.need-body p { margin-bottom: 1.4rem; }
+.need-quote {
+  background: var(--bg-2);
+  border-left: 3px solid var(--brand);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.3rem 1.5rem;
+  margin: 1.8rem 0;
+  font-family: var(--font-ja);
+  font-size: clamp(0.98rem, 1.2vw, 1.06rem);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink-2);
+  line-height: 1.9;
+}
+.need-answer {
+  margin: 2.8rem 0 1rem;
+  font-family: var(--font-ja);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  line-height: 1.4;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+.need-answer .label {
+  display: inline-block;
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 0.5em;
+  color: var(--brand);
+  font-weight: 700;
+  background: var(--brand-soft);
+  padding: 0.15em 0.5em;
+  border-radius: 8px;
+  vertical-align: 0.35em;
+  margin-right: 0.4em;
+}
+.need-answer .punch {
+  background: linear-gradient(180deg, transparent 65%, var(--brand-soft) 65%);
+  color: var(--brand);
+  padding: 0 0.1em;
+}
+
+.fears-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3.2rem;
+}
+@media (max-width: 900px) { .fears-grid { grid-template-columns: 1fr; } }
+.fear-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.6rem;
+  transition: box-shadow 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.fear-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--surface-3);
+  transform: translateY(-3px);
+}
+.fear-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  margin-bottom: 1.2rem;
+}
+.fear-icon svg { width: 22px; height: 22px; }
+.fear-num {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--brand);
+  letter-spacing: 0.14em;
+  margin-bottom: 0.4rem;
+}
+.fear-name {
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: 1.18rem;
+  color: var(--ink);
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.005em;
+}
+.fear-voice {
+  font-family: var(--font-ja);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--ink-3);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px dashed var(--line);
+  line-height: 1.7;
+}
+.fear-desc {
+  font-family: var(--font-ja);
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  line-height: 1.85;
+}
+.need-bridge {
+  margin-top: 3.2rem;
+  text-align: center;
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+  line-height: 1.95;
+  color: var(--ink);
+}
+.need-bridge strong { color: var(--brand); }
+
+/* ─── PILLARS ─── */
+#pillars {
+  background: var(--bg);
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3.2rem;
+}
+@media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr; } }
+.pillar {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.8rem;
+  transition: box-shadow 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.pillar:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--surface-3);
+  transform: translateY(-3px);
+}
+.pillar-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+.pillar-num {
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: var(--brand);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.pillar-name {
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: 1.22rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.005em;
+}
+.pillar-en {
+  font-family: var(--font-en);
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+}
+.pillar-desc {
+  font-family: var(--font-ja);
+  font-size: 0.92rem;
+  color: var(--ink-2);
+  line-height: 1.9;
+}
+
+/* ─── WHY ─── */
+#why {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; } }
+.why-figures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.why-fig {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  transition: border-color 0.2s var(--ease);
+}
+.why-fig:hover { border-color: var(--brand); }
+.why-fig-num {
+  font-family: var(--font-en);
+  font-size: clamp(2rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+.why-fig-num em { font-style: normal; color: var(--brand); }
+.why-fig-label {
+  font-family: var(--font-ja);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.why-list {
+  list-style: none;
+  margin-top: 1.6rem;
+}
+.why-list li {
+  font-family: var(--font-ja);
+  font-size: 0.94rem;
+  color: var(--ink-2);
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  line-height: 1.75;
+}
+.why-list li::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+  flex-shrink: 0;
+  transform: translateY(-2px);
+}
+
+/* ─── PRODUCT (curriculum) ─── */
+#product {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+}
+.product-meta {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.6rem;
+  flex-wrap: wrap;
+}
+.meta-chip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  font-family: var(--font-ja);
+  font-size: 0.84rem;
+  color: var(--ink-2);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.meta-chip b {
+  font-family: var(--font-en);
+  font-weight: 800;
+  color: var(--brand);
+  font-size: 0.96rem;
+  letter-spacing: -0.02em;
+}
+
+.curriculum {
+  margin-top: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.phase {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.phase-head {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.phase-month {
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: var(--brand-soft);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+.phase-label {
+  font-family: var(--font-ja);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.phase-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.chapter {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.8rem;
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1.6rem;
+  transition: box-shadow 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.2s var(--ease);
+}
+@media (max-width: 720px) { .chapter { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.6rem; } }
+.chapter:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--surface-3);
+}
+.chapter-num {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.chapter-num .pt {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.chapter-num .n {
+  font-family: var(--font-en);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.chapter-name {
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: clamp(1.16rem, 1.7vw, 1.32rem);
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.005em;
+}
+.chapter-goal {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  font-family: var(--font-ja);
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  line-height: 1.75;
+}
+.chapter-goal::before {
+  content: '→';
+  color: var(--brand);
+  font-family: var(--font-en);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.chapter-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.55rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+@media (max-width: 600px) {
+  .chapter-grid { grid-template-columns: 1fr; gap: 0.25rem; }
+  .chapter-grid > .lab { margin-top: 0.4rem; }
+}
+.chapter-grid .lab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+  white-space: nowrap;
+  background: var(--brand-soft);
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  align-self: start;
+}
+.chapter-grid .txt {
+  color: var(--ink-2);
+  font-family: var(--font-ja);
+}
+.chapter-grid .txt em {
+  background: var(--brand-soft);
+  color: var(--brand-d);
+  font-style: normal;
+  font-weight: 600;
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+}
+
+.single-edition {
+  background: linear-gradient(135deg, var(--surface) 0%, #fff4ec 100%);
+  border: 1.5px solid var(--brand);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.8rem, 4vw, 2.6rem);
+  margin-top: 2.4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.6rem, 4vw, 3rem);
+  align-items: center;
+  box-shadow: 0 12px 32px rgba(217,119,87,0.16), 0 1px 0 rgba(255,255,255,0.6) inset;
+  position: relative;
+  overflow: hidden;
+}
+.single-edition::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-l), var(--warn));
+}
+@media (max-width: 720px) {
+  .single-edition { grid-template-columns: 1fr; padding: 1.8rem; }
+}
+.single-edition .ed-name {
+  font-family: var(--font-ja);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.6vw, 1.7rem);
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+.ed-price-big {
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 5.4vw, 3.6rem);
+  color: var(--ink);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.ed-price-big .yen {
+  font-size: 0.62em;
+  color: var(--brand);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.ed-price-big small {
+  display: block;
+  width: 100%;
+  font-family: var(--font-ja);
+  font-size: 0.84rem;
+  color: var(--ink-3);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-top: 0.4rem;
+}
+.single-edition .btn-primary {
+  width: 100%;
+  justify-content: center;
+}
+.ed-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.4rem;
+}
+.ed-name {
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: 1.16rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.005em;
+}
+.ed-price {
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 1.4rem;
+}
+.ed-price small {
+  font-family: var(--font-ja);
+  font-size: 0.74rem;
+  color: var(--ink-3);
+  font-weight: 500;
+  margin-left: 0.4rem;
+  letter-spacing: 0.04em;
+}
+.ed-list { list-style: none; }
+.ed-list li {
+  font-family: var(--font-ja);
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  padding: 0.45rem 0;
+  line-height: 1.65;
+  display: flex;
+  gap: 0.55rem;
+  align-items: baseline;
+}
+.ed-list li::before {
+  content: '';
+  width: 16px; height: 16px;
+  display: inline-flex;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d97757' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.3rem;
+}
+
+/* ─── SAMPLES ─── */
+#samples { background: var(--surface); border-top: 1px solid var(--line); }
+.samples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3.2rem;
+}
+@media (max-width: 900px) { .samples-grid { grid-template-columns: 1fr; } }
+.sample {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.2s var(--ease);
+}
+.sample:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand);
+  transform: translateY(-3px);
+}
+.sample-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  margin-bottom: 1.2rem;
+}
+.sample-icon svg { width: 20px; height: 20px; }
+.sample-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--brand);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.sample-name {
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: 1.12rem;
+  color: var(--ink);
+  margin-bottom: 0.7rem;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+.sample-desc {
+  font-family: var(--font-ja);
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  line-height: 1.85;
+  flex: 1;
+  margin-bottom: 1.4rem;
+}
+.sample-link {
+  font-family: var(--font-ja);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--brand);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  transition: gap 0.2s var(--ease);
+}
+.sample-link svg { width: 14px; height: 14px; transition: transform 0.2s var(--ease); }
+.sample:hover .sample-link svg { transform: translateX(3px); }
+
+/* ─── SNS ─── */
+#sns {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+}
+.sns-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-top: 2.6rem;
+}
+@media (max-width: 900px) { .sns-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .sns-grid { grid-template-columns: 1fr; } }
+.sns-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.3rem;
+  transition: box-shadow 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.2s var(--ease);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.sns-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand);
+  transform: translateY(-3px);
+}
+.sns-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.3rem;
+}
+.sns-icon svg { width: 16px; height: 16px; }
+.sns-name {
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+.sns-handle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--brand);
+  font-weight: 500;
+}
+.sns-desc {
+  font-family: var(--font-ja);
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  line-height: 1.7;
+}
+
+/* ─── WAITLIST ─── */
+#waitlist {
+  background: var(--night);
+  color: var(--bg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#waitlist::before {
+  content: '';
+  position: absolute;
+  top: -30%; left: 50%;
+  transform: translateX(-50%);
+  width: 80vw; aspect-ratio: 1;
+  background: radial-gradient(circle, var(--brand-glow) 0%, transparent 55%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+#waitlist .wrap-narrow { position: relative; }
+.wl-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(217,119,87,0.18);
+  color: var(--brand-l);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+.wl-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--brand-l);
+}
+.wl-title {
+  font-family: var(--font-ja);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  line-height: 1.35;
+  color: var(--bg);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.015em;
+}
+.wl-title .brand { color: var(--brand-l); }
+.wl-lead {
+  font-family: var(--font-ja);
+  font-size: 1rem;
+  color: rgba(250,249,240,0.78);
+  line-height: 1.95;
+  margin-bottom: 2.2rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wl-form {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  padding: 0.4rem 0.4rem 0.4rem 1.4rem;
+  align-items: center;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+.wl-form input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-ja);
+  font-size: 0.96rem;
+  color: var(--bg);
+  padding: 0.7rem 0;
+}
+.wl-form input::placeholder { color: rgba(250,249,240,0.4); }
+.wl-form button {
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-ja);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.85rem 1.4rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+  box-shadow: 0 6px 14px rgba(217,119,87,0.28);
+}
+.wl-form button:hover { background: var(--brand-d); transform: translateY(-1px); }
+.wl-form button svg { width: 14px; height: 14px; }
+.wl-note {
+  font-family: var(--font-ja);
+  font-size: 0.84rem;
+  color: rgba(250,249,240,0.5);
+  margin-top: 1rem;
+}
+@media (max-width: 600px) {
+  .wl-form { flex-direction: column; padding: 0.8rem; border-radius: 14px; }
+  .wl-form input { padding: 0.7rem 1rem; text-align: center; }
+  .wl-form button { width: 100%; padding: 0.95rem; }
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--night-2);
+  color: rgba(250,249,240,0.55);
+  padding: 2.4rem clamp(1.2rem, 4vw, 2.4rem);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.foot-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.foot-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-ja);
+  font-weight: 700;
+  font-size: 0.94rem;
+  color: var(--bg);
+}
+.foot-brand em {
+  display: block;
+  font-family: var(--font-en);
+  font-style: normal;
+  font-size: 0.74rem;
+  color: rgba(250,249,240,0.5);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 0.1rem;
+}
+.foot-links {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-ja);
+  font-size: 0.86rem;
+}
+.foot-links a { transition: color 0.2s var(--ease); }
+.foot-links a:hover { color: var(--brand-l); }
+
+/* Stagger fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-badge   { animation: fadeUp 0.6s var(--ease) 0.05s both; }
+.hero-title   { animation: fadeUp 0.6s var(--ease) 0.15s both; }
+.hero-sub     { animation: fadeUp 0.6s var(--ease) 0.25s both; }
+.hero-pills   { animation: fadeUp 0.6s var(--ease) 0.35s both; }
+.hero-cta     { animation: fadeUp 0.6s var(--ease) 0.45s both; }
+.hero-viz     { animation: fadeUp 0.8s var(--ease) 0.30s both; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrap">
+    <a href="#hero" class="nav-brand">
+      <span class="nav-logo">P</span>
+      <span>失敗しても痛くないミニマム起業</span>
+      <span class="nav-brand-sub">painless startup lab</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#need">なぜ踏み出せないか</a></li>
+      <li><a href="#pillars">3 つの軸</a></li>
+      <li><a href="#product">カリキュラム</a></li>
+      <li><a href="#samples">無料サンプル</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView()">
+      先行登録
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ═════════ HERO ═════════ -->
+<section id="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="hero-badge">
+        <span class="dot">✦</span>
+        「いつか起業したい」を踏み出せないあなたへ
+      </div>
+      <h1 class="hero-title">
+        <span class="accent">失敗しても</span>痛くない<br>
+        ミニマム起業。
+      </h1>
+      <p class="hero-sub">
+        やってみたい気持ちはある。アイデアもある。<br>
+        それでも踏み出せない原因は、たった一つ。<strong>失敗が怖いから</strong>。<br>
+        ——それなら、失敗しても痛くないように、最初から設計すればいい。
+      </p>
+      <div class="hero-pills">
+        <span class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          金銭リスク 0
+        </span>
+        <span class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          時間リスク 0
+        </span>
+        <span class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg>
+          機会損失 0
+        </span>
+      </div>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="document.getElementById('need').scrollIntoView()">
+          なぜ踏み出せないか
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <button class="btn-secondary" onclick="document.getElementById('waitlist').scrollIntoView()">
+          先行登録する
+        </button>
+      </div>
+    </div>
+    <aside class="hero-viz">
+      <div class="viz-top">
+        <span class="viz-tag">painless · designed</span>
+        <span class="viz-dots"><span></span><span></span><span></span></span>
+      </div>
+      <div class="viz-stats">
+        <div class="viz-stat">
+          <div class="viz-stat-num">0<small>円</small></div>
+          <div class="viz-stat-label">初期固定費</div>
+        </div>
+        <div class="viz-stat">
+          <div class="viz-stat-num">3<small>ヶ月</small></div>
+          <div class="viz-stat-label">撤退判断</div>
+        </div>
+        <div class="viz-stat">
+          <div class="viz-stat-num">0<small>%</small></div>
+          <div class="viz-stat-label">脱サラ前提</div>
+        </div>
+      </div>
+      <div class="viz-row"><span class="k">金銭リスク</span><span class="v">回避</span></div>
+      <div class="viz-row"><span class="k">時間リスク</span><span class="v">回避</span></div>
+      <div class="viz-row"><span class="k">機会損失</span><span class="v">回避</span></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ═════════ NEED ═════════ -->
+<section id="need">
+  <div class="wrap-narrow">
+    <div class="eyebrow">why you can't start</div>
+    <h2 class="need-q">
+      <span class="qmark">Q.</span>なぜ、起業に<br>
+      <span class="brand">踏み出せない</span>のか？
+    </h2>
+    <div class="need-body">
+      <p>
+        やってみたい気持ちはある。アイデアもある。本も読んだ。SNS で発信もしている。動画教材だって、何本も観た。それでも、最初の一歩が出ない。
+      </p>
+      <div class="need-quote">
+        「もう少し準備が整ってから。」<br>
+        「タイミングがあえばいつか。」<br>
+        「いまは余裕がないから来年こそ。」
+      </div>
+      <p>
+        そうやって、何年も「いつか」を先送りにしてきた人を、これまで何人も見てきました。でも、本人もうすうす気付いているはずです。準備の不足でも、タイミングの問題でも、余裕のなさでもないことに。
+      </p>
+      <h3 class="need-answer">
+        <span class="label">A.</span>踏み出せない理由は、たった一つ。<br>
+        <span class="punch">失敗が怖いから。</span>
+      </h3>
+      <p>そして、「失敗が怖い」を分解すると、3 つの不安に集約されます。</p>
+    </div>
+
+    <div class="fears-grid">
+      <article class="fear-card">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="fear-num">01 / FEAR</div>
+        <h4 class="fear-name">お金を失う不安</h4>
+        <p class="fear-voice">「初期投資して回収できなかったら、貯金が消える。」</p>
+        <p class="fear-desc">ツールを契約し、外注し、広告を打って、何百万も注ぎ込む——そんな起業のイメージが、最初の一歩を重くしている。</p>
+      </article>
+      <article class="fear-card">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="fear-num">02 / FEAR</div>
+        <h4 class="fear-name">時間を無駄にする不安</h4>
+        <p class="fear-voice">「1 年やって何にもならなかったら、その時間どうする。」</p>
+        <p class="fear-desc">撤退の判断基準を持たないまま走り始めると、ずるずる続けてしまう。そして「もう引き返せない」状態が、最大のリスクになる。</p>
+      </article>
+      <article class="fear-card">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="fear-num">03 / FEAR</div>
+        <h4 class="fear-name">本業のキャリアを失う不安</h4>
+        <p class="fear-voice">「脱サラして失敗したら、もう戻れない。」</p>
+        <p class="fear-desc">起業 ≒ 脱サラ、というイメージが、踏み出せない最大の理由。本業を辞めずに進められるなら、リスクは劇的に下がる。</p>
+      </article>
+    </div>
+
+    <p class="need-bridge">
+      だから、この <strong>3 つの不安を最初からゼロにする設計</strong>が必要だった。<br>
+      それが、本ラボの提案する「失敗しても痛くない 3 軸」。
+    </p>
+  </div>
+</section>
+
+<!-- ═════════ PILLARS ═════════ -->
+<section id="pillars">
+  <div class="wrap">
+    <div class="eyebrow">the design</div>
+    <h2 class="h-title">不安は、気合ではなく<br><span class="brand">「設計」</span>で解消する。</h2>
+    <p class="lead">3 つの不安それぞれに対して、「最初から起きない」よう設計します。根性論ではなく、構造で起業のリスクをゼロにする。</p>
+    <div class="pillars-grid">
+      <article class="pillar">
+        <div class="pillar-head">
+          <div class="pillar-num">01</div>
+          <div>
+            <div class="pillar-name">金銭リスク回避</div>
+            <div class="pillar-en">No financial risk</div>
+          </div>
+        </div>
+        <p class="pillar-desc">初期投資ゼロ、固定費 0 で始める設計。無料ツールだけで MVP を立ち上げる方法を体系化。撤退してもお金は減らない。</p>
+      </article>
+      <article class="pillar">
+        <div class="pillar-head">
+          <div class="pillar-num">02</div>
+          <div>
+            <div class="pillar-name">時間リスク回避</div>
+            <div class="pillar-en">3-month decision frame</div>
+          </div>
+        </div>
+        <p class="pillar-desc">3 ヶ月で撤退 or 拡大を判断するフレーム。月次レビューと検証 KPI で「ダメなら次へ」を即決できる。ダラダラ続けて時間を溶かさない。</p>
+      </article>
+      <article class="pillar">
+        <div class="pillar-head">
+          <div class="pillar-num">03</div>
+          <div>
+            <div class="pillar-name">機会損失回避</div>
+            <div class="pillar-en">Keep your day job</div>
+          </div>
+        </div>
+        <p class="pillar-desc">本業を辞めずに進められる前提設計。平日夜 1-2 時間・週末 4-6 時間のスケジューリングで本業のキャリアと並走させる。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ WHY ═════════ -->
+<section id="why">
+  <div class="wrap">
+    <div class="why-grid">
+      <div>
+        <div class="eyebrow">why this lab</div>
+        <h2 class="h-title">「成功者の話」ではなく、<br><span class="brand">「いま走っている人の型」</span>を。</h2>
+        <p class="lead">セオリーや過去の成功談ではなく、ラボ主自身が現在進行形でミニマム事業を立ち上げ続けている過程を、再現可能な「型」として体系化しています。</p>
+      </div>
+      <div>
+        <div class="why-figures">
+          <div class="why-fig">
+            <div class="why-fig-num"><em>3</em><small></small></div>
+            <div class="why-fig-label">painless 設計の軸</div>
+          </div>
+          <div class="why-fig">
+            <div class="why-fig-num">¥<em>0</em></div>
+            <div class="why-fig-label">初期固定費</div>
+          </div>
+          <div class="why-fig">
+            <div class="why-fig-num"><em>3</em>ヶ月</div>
+            <div class="why-fig-label">撤退判断サイクル</div>
+          </div>
+          <div class="why-fig">
+            <div class="why-fig-num"><em>0</em></div>
+            <div class="why-fig-label">脱サラ前提</div>
+          </div>
+        </div>
+        <ul class="why-list">
+          <li>本業を辞めずに、平日夜・週末で進められる設計</li>
+          <li>固定費 0 と無料ツールで始められる方法を体系化</li>
+          <li>3 ヶ月で撤退 or 拡大を判断するフレーム内蔵</li>
+          <li>ラボ並走中の事業のリアル進捗と試行錯誤を共有</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ PRODUCT / CURRICULUM ═════════ -->
+<section id="product">
+  <div class="wrap">
+    <div class="eyebrow">curriculum</div>
+    <h2 class="h-title"><span class="brand">3 ヶ月</span>で、起業の<br>最初の一歩を完結。</h2>
+    <p class="lead">起業の「最初の 90 日」を、5 つの章に分けて設計しました。各章には「読む（ガイド）」「使う（テンプレ）」「進める（AI プロンプト）」が同梱され、読んで理解した次の瞬間、手を動かせる構成になっています。</p>
+    <div class="product-meta">
+      <span class="meta-chip"><b>05</b> 章構成</span>
+      <span class="meta-chip"><b>05</b> 種のワークシート</span>
+      <span class="meta-chip"><b>30+</b> AI プロンプト</span>
+      <span class="meta-chip"><b>∞</b> 更新無料</span>
+    </div>
+
+    <div class="curriculum">
+
+      <div class="phase">
+        <div class="phase-head">
+          <span class="phase-month">Month 01</span>
+          <span class="phase-label">構想と決断</span>
+          <span class="phase-line"></span>
+        </div>
+
+        <article class="chapter">
+          <div class="chapter-num"><span class="pt">Part</span><span class="n">01</span></div>
+          <div>
+            <h3 class="chapter-name">マインドセット編</h3>
+            <div class="chapter-goal">「失敗しても痛くない」3 軸を理解し、撤退する基準を持つ。</div>
+            <div class="chapter-grid">
+              <span class="lab">読む</span><span class="txt">3 軸とは何か／撤退判断フレームの考え方／本業と並走する設計</span>
+              <span class="lab">使う</span><span class="txt"><em>意思決定チェックシート</em>／<em>3 軸スコアリングテンプレ</em></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <div class="chapter-num"><span class="pt">Part</span><span class="n">02</span></div>
+          <div>
+            <h3 class="chapter-name">事業アイデア発見編</h3>
+            <div class="chapter-goal">自分の強みを棚卸しし、3 つの事業アイデアまで絞り込む。</div>
+            <div class="chapter-grid">
+              <span class="lab">読む</span><span class="txt">強み棚卸しの 5 ステップ／市場検証の最速ルート／業種別「痛くない」アイデアの型</span>
+              <span class="lab">使う</span><span class="txt"><em>強み棚卸しワークシート</em>／<em>アイデア検証スコアシート</em></span>
+              <span class="lab">進める</span><span class="txt">AI プロンプト「事業アイデア生成（強みから 3 案）」「ターゲット解像度を上げる質問」</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head">
+          <span class="phase-month">Month 02</span>
+          <span class="phase-label">立ち上げ</span>
+          <span class="phase-line"></span>
+        </div>
+
+        <article class="chapter">
+          <div class="chapter-num"><span class="pt">Part</span><span class="n">03</span></div>
+          <div>
+            <h3 class="chapter-name">MVP 立ち上げ編</h3>
+            <div class="chapter-goal">固定費 0 で MVP を作り、最初の 10 人の顧客と話す。</div>
+            <div class="chapter-grid">
+              <span class="lab">読む</span><span class="txt">無料ツールだけで作る MVP／LP・SNS・問い合わせ導線の最短セットアップ／最初の 10 人を取る方法</span>
+              <span class="lab">使う</span><span class="txt"><em>MVP 設計シート</em>／<em>LP・SNS セットアップ手順チェックリスト</em>／<em>顧客インタビューテンプレ</em></span>
+              <span class="lab">進める</span><span class="txt">AI プロンプト「LP 文章草案」「SNS 投稿テンプレ生成」「顧客インタビュー質問設計」</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head">
+          <span class="phase-month">Month 03</span>
+          <span class="phase-label">検証と決断</span>
+          <span class="phase-line"></span>
+        </div>
+
+        <article class="chapter">
+          <div class="chapter-num"><span class="pt">Part</span><span class="n">04</span></div>
+          <div>
+            <h3 class="chapter-name">3 ヶ月検証編</h3>
+            <div class="chapter-goal">数字で「撤退 or 拡大」を判断する。続けるか、次へいくか。</div>
+            <div class="chapter-grid">
+              <span class="lab">読む</span><span class="txt">検証 KPI の選び方／月次レビューフレーム／撤退基準と拡大基準</span>
+              <span class="lab">使う</span><span class="txt"><em>3 ヶ月検証 KPI ボード</em>／<em>月次レビューシート</em>／<em>撤退 or 拡大 判断シート</em></span>
+              <span class="lab">進める</span><span class="txt">AI プロンプト「数字から学びを抽出」「次の打ち手の優先順位設計」</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="phase">
+        <div class="phase-head">
+          <span class="phase-month">Continuing</span>
+          <span class="phase-label">継続学習</span>
+          <span class="phase-line"></span>
+        </div>
+
+        <article class="chapter">
+          <div class="chapter-num"><span class="pt">Part</span><span class="n">05</span></div>
+          <div>
+            <h3 class="chapter-name">ケーススタディ集（更新型）</h3>
+            <div class="chapter-goal">ラボ並走中の事業の進捗・失敗・学びから、型のリアルを学ぶ。</div>
+            <div class="chapter-grid">
+              <span class="lab">読む</span><span class="txt">進行中事業の月次進捗／業種・規模・収益モデル別の事例／「やめた」事業の理由と次の一手</span>
+              <span class="lab">使う</span><span class="txt"><em>事業比較表テンプレ</em>／<em>業種別「痛くない」アイデア集</em></span>
+              <span class="lab">特典</span><span class="txt">購入後も追記分が自動反映。ロードマップは生きた事例とともに更新されます。</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="single-edition">
+      <div>
+        <div class="ed-tag">First Edition · 2026</div>
+        <h3 class="ed-name">失敗しても痛くないミニマム起業<br>完全パッケージ</h3>
+        <div class="ed-price-big">
+          <span class="yen">¥</span>9,800
+          <small>買い切り · アップデート無料</small>
+        </div>
+        <button class="btn-primary" onclick="document.getElementById('waitlist').scrollIntoView()">
+          先行登録する
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+      <ul class="ed-list">
+        <li>5 章すべてのガイド（マインドセット → ケーススタディ）</li>
+        <li>主要ワークシート 5 種（強み棚卸し／MVP 設計／KPI ボード ほか）</li>
+        <li>章ごとの AI プロンプト 30+ 種</li>
+        <li>購入後のアップデート無料（追記分も自動反映）</li>
+        <li>ケーススタディ集の継続更新へのアクセス</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ SAMPLES ═════════ -->
+<section id="samples">
+  <div class="wrap">
+    <div class="eyebrow">try before you buy</div>
+    <h2 class="h-title">まずは無料で、<br>中身を確かめてください。</h2>
+    <p class="lead">第 1 部の冒頭、ワークシートの抜粋、note の連載。買う前に、本編との相性を確かめられます。</p>
+    <div class="samples-grid">
+      <a class="sample" href="#">
+        <div class="sample-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="sample-tag">Sample Chapter</div>
+        <h3 class="sample-name">第 1 部 マインドセット編<br>冒頭セクション無料</h3>
+        <p class="sample-desc">「失敗しても痛くない」3 軸の解説と、撤退判断フレームの冒頭部分を無料公開しています。</p>
+        <span class="sample-link">
+          読みに行く
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+      <a class="sample" href="#">
+        <div class="sample-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+        </div>
+        <div class="sample-tag">Free Template</div>
+        <h3 class="sample-name">強み棚卸し<br>ワークシート単体</h3>
+        <p class="sample-desc">第 2 部の冒頭ワークシートを、その場で使える形で無料配布。AI プロンプト付き。</p>
+        <span class="sample-link">
+          テンプレを開く
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+      <a class="sample" href="#">
+        <div class="sample-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div class="sample-tag">note 連載</div>
+        <h3 class="sample-name">「ミニマム起業の型」<br>note 連載</h3>
+        <p class="sample-desc">章節を毎週 1 本ずつ note で公開。連載で追えば無料、まとめて読みたい人は本編へ。</p>
+        <span class="sample-link">
+          note で読む
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ SNS ═════════ -->
+<section id="sns">
+  <div class="wrap">
+    <div class="eyebrow">follow the journey</div>
+    <h2 class="h-title">ラボの日々を、<br>毎日発信中。</h2>
+    <p class="lead">ガイドの章のエッセンスやラボ並走中の事業のリアル進捗を、SNS で毎日発信しています。</p>
+    <div class="sns-grid">
+      <a class="sns-card" href="#">
+        <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <div class="sns-name">X</div>
+        <div class="sns-handle">@painless_lab</div>
+        <div class="sns-desc">日々の Tips・失敗談・進捗</div>
+      </a>
+      <a class="sns-card" href="#">
+        <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+        <div class="sns-name">YouTube</div>
+        <div class="sns-handle">painless-startup</div>
+        <div class="sns-desc">中尺ケーススタディ</div>
+      </a>
+      <a class="sns-card" href="#">
+        <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.42 4.69H3.58A3.59 3.59 0 0 0 0 8.27v7.46a3.59 3.59 0 0 0 3.58 3.58h16.84A3.59 3.59 0 0 0 24 15.73V8.27a3.59 3.59 0 0 0-3.58-3.58zM10.65 16.4H8.21V9.34l-3.18 7.06H3.07V7.6h3.06l2.62 5.95L11.4 7.6h3.05v8.8h-2.43V9.46zm10.28-2.31c0 1.45-1.19 2.31-2.66 2.31-1.65 0-3-.69-3.21-2.59h2.55c.05.5.36.84.71.84.39 0 .54-.27.54-.54V7.6h2.07z"/></svg></div>
+        <div class="sns-name">note</div>
+        <div class="sns-handle">painless-lab</div>
+        <div class="sns-desc">章節連載・ラボの日記</div>
+      </a>
+      <a class="sns-card" href="#">
+        <div class="sns-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <div class="sns-name">Instagram</div>
+        <div class="sns-handle">@painless.lab</div>
+        <div class="sns-desc">図解・カード化された Tips</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ WAITLIST ═════════ -->
+<section id="waitlist">
+  <div class="wrap-narrow">
+    <div class="wl-eyebrow">join the waitlist</div>
+    <h2 class="wl-title">先行登録、<br><span class="brand">受付中。</span></h2>
+    <p class="wl-lead">
+      2026 年 Q4 のローンチ時、先行登録者には<br>
+      <strong style="color: var(--brand-l)">¥3,000 OFF</strong> の早期割引クーポンと、先行配布のサンプルをお送りします。
+    </p>
+    <form class="wl-form" onsubmit="event.preventDefault(); alert('先行登録ありがとうございます。');">
+      <input type="email" placeholder="your email address" required>
+      <button type="submit">
+        登録する
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </form>
+    <p class="wl-note">いつでも配信停止できます。営業メールは送りません。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-wrap">
+    <div class="foot-brand">
+      <span class="nav-logo">P</span>
+      <div>
+        失敗しても痛くないミニマム起業
+        <em>painless startup lab · est. 2026</em>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="#">特商法</a>
+      <a href="#">プライバシー</a>
+      <a href="#">contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
