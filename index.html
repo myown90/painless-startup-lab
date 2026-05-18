@@ -1333,6 +1333,40 @@ section {
   .wl-form input { padding: 0.7rem 1rem; text-align: center; }
   .wl-form button { width: 100%; padding: 0.95rem; }
 }
+.wl-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--brand);
+  color: white;
+  font-family: var(--font-ja);
+  font-size: 1.04rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 1.1rem 2.4rem;
+  border-radius: 999px;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  box-shadow: 0 8px 22px rgba(217,119,87,0.38), 0 1px 0 rgba(255,255,255,0.3) inset;
+  margin-top: 2.4rem;
+  text-decoration: none;
+  border: 1px solid var(--brand);
+}
+.wl-cta-button:hover {
+  background: var(--brand-d);
+  border-color: var(--brand-d);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(217,119,87,0.44), 0 1px 0 rgba(255,255,255,0.3) inset;
+}
+.wl-cta-button svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s var(--ease);
+}
+.wl-cta-button:hover svg { transform: translateX(3px); }
+@media (max-width: 600px) {
+  .wl-cta-button { width: 100%; padding: 1.05rem 1.4rem; font-size: 0.98rem; }
+}
 
 /* ─── FOOTER ─── */
 footer {
@@ -1852,14 +1886,11 @@ footer {
       2026 年 Q4 のローンチ時、先行登録者には<br>
       <strong style="color: var(--brand-l)">¥3,000 OFF</strong> の早期割引クーポンと、先行配布のサンプルをお送りします。
     </p>
-    <form class="wl-form" onsubmit="event.preventDefault(); alert('先行登録ありがとうございます。');">
-      <input type="email" placeholder="your email address" required>
-      <button type="submit">
-        登録する
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-    </form>
-    <p class="wl-note">いつでも配信停止できます。営業メールは送りません。</p>
+    <a class="wl-cta-button" href="https://forms.gle/LdJRj8mykN1yBoNg9" target="_blank" rel="noopener">
+      先行登録フォームを開く
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="wl-note">所要時間 約 1 分・いつでも配信停止できます。営業メールは送りません。</p>
   </div>
 </section>
 
