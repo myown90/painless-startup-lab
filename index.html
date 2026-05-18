@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>失敗しても痛くないミニマム起業 — painless startup lab</title>
 <meta name="description" content="「いつか起業したい」を踏み出せないあなたへ。原因はひとつ、失敗が怖いから。だから最初から、失敗しても痛くないように設計しました。本業を辞めず、初期投資ゼロ、3ヶ月で撤退判断できるミニマム起業の型。">
-<link rel="icon" type="image/png" href="/logo.png">
-<link rel="shortcut icon" type="image/png" href="/logo.png">
-<link rel="apple-touch-icon" href="/logo.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/logo.png">
+<link rel="icon" type="image/png" href="/logo-512.png">
+<link rel="shortcut icon" type="image/png" href="/logo-512.png">
+<link rel="apple-touch-icon" href="/logo-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/logo-512.png">
 <meta name="theme-color" content="#d97757">
 <meta property="og:title" content="失敗しても痛くないミニマム起業 — painless startup lab">
 <meta property="og:description" content="本業を辞めず、初期投資ゼロ、3ヶ月で撤退判断できるミニマム起業の型。">
@@ -125,7 +125,7 @@ nav {
   width: 36px;
   height: 36px;
   display: inline-block;
-  background-image: url('/logo.png');
+  background-image: url('/logo-512.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1174,6 +1174,16 @@ section {
   border-color: var(--brand);
   transform: translateY(-3px);
 }
+.sns-card--pending {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+.sns-card--pending .sns-handle {
+  font-family: var(--font-en);
+  font-style: italic;
+  color: var(--ink-3);
+}
 .sns-icon {
   width: 32px; height: 32px;
   border-radius: 8px;
@@ -1798,28 +1808,28 @@ footer {
     <h2 class="h-title">ラボの日々を、<br>毎日発信中。</h2>
     <p class="lead">ガイドの章のエッセンスやラボ並走中の事業のリアル進捗を、SNS で毎日発信しています。</p>
     <div class="sns-grid">
-      <a class="sns-card" href="#">
+      <a class="sns-card sns-card--pending" href="#" aria-disabled="true">
         <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
         <div class="sns-name">X</div>
-        <div class="sns-handle">@painless_lab</div>
+        <div class="sns-handle">Coming soon</div>
         <div class="sns-desc">日々の Tips・失敗談・進捗</div>
       </a>
-      <a class="sns-card" href="#">
+      <a class="sns-card sns-card--pending" href="#" aria-disabled="true">
         <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
         <div class="sns-name">YouTube</div>
-        <div class="sns-handle">painless-startup</div>
+        <div class="sns-handle">Coming soon</div>
         <div class="sns-desc">中尺ケーススタディ</div>
       </a>
-      <a class="sns-card" href="#">
+      <a class="sns-card" href="https://note.com/painless-lab" target="_blank" rel="noopener">
         <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.42 4.69H3.58A3.59 3.59 0 0 0 0 8.27v7.46a3.59 3.59 0 0 0 3.58 3.58h16.84A3.59 3.59 0 0 0 24 15.73V8.27a3.59 3.59 0 0 0-3.58-3.58zM10.65 16.4H8.21V9.34l-3.18 7.06H3.07V7.6h3.06l2.62 5.95L11.4 7.6h3.05v8.8h-2.43V9.46zm10.28-2.31c0 1.45-1.19 2.31-2.66 2.31-1.65 0-3-.69-3.21-2.59h2.55c.05.5.36.84.71.84.39 0 .54-.27.54-.54V7.6h2.07z"/></svg></div>
         <div class="sns-name">note</div>
-        <div class="sns-handle">painless-lab</div>
+        <div class="sns-handle">@painless-lab</div>
         <div class="sns-desc">章節連載・ラボの日記</div>
       </a>
-      <a class="sns-card" href="#">
+      <a class="sns-card" href="https://instagram.com/painless-lab" target="_blank" rel="noopener">
         <div class="sns-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
         <div class="sns-name">Instagram</div>
-        <div class="sns-handle">@painless.lab</div>
+        <div class="sns-handle">@painless-lab</div>
         <div class="sns-desc">図解・カード化された Tips</div>
       </a>
     </div>
