@@ -530,10 +530,13 @@ section {
   padding: 0 0.45em;
   border-radius: 8px;
 }
-.need-intro {
-  max-width: 45rem;
-  margin: 0 auto;
+.need-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(2.4rem, 5vw, 4rem);
+  align-items: start;
 }
+@media (max-width: 900px) { .need-grid { grid-template-columns: 1fr; } }
 .need-body {
   font-family: var(--font-ja);
   font-size: clamp(1rem, 1.3vw, 1.08rem);
@@ -541,18 +544,77 @@ section {
   color: var(--ink-2);
 }
 .need-body p { margin-bottom: 1.4rem; }
-.need-quote {
-  background: var(--bg-2);
-  border-left: 3px solid var(--brand);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 1.3rem 1.5rem;
-  margin: 1.8rem 0;
+
+.need-aside {
+  position: relative;
+  background: linear-gradient(180deg, var(--surface) 0%, #fff4ec 100%);
+  border: 1px solid var(--brand-soft);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.8rem, 3vw, 2.4rem);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 18px rgba(217,119,87,0.08);
+  overflow: hidden;
+}
+.need-aside::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-l));
+}
+.need-aside-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 0.6rem;
+}
+.need-aside-title {
   font-family: var(--font-ja);
-  font-size: clamp(0.98rem, 1.2vw, 1.06rem);
+  font-size: clamp(1.04rem, 1.4vw, 1.16rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.005em;
+}
+.need-excuses {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: excuse;
+}
+.need-excuses li {
+  counter-increment: excuse;
+  position: relative;
+  padding: 1.05rem 0 1.05rem 2.8rem;
+  border-bottom: 1px dashed var(--line);
+  font-family: var(--font-ja);
+  font-size: clamp(0.96rem, 1.2vw, 1.04rem);
+  line-height: 1.7;
+  color: var(--ink-2);
   font-style: italic;
   font-weight: 500;
-  color: var(--ink-2);
-  line-height: 1.9;
+}
+.need-excuses li:last-child { border-bottom: none; }
+.need-excuses li::before {
+  content: counter(excuse, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1.15rem;
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: 0.06em;
+}
+.need-aside-foot {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-ja);
+  font-size: 0.86rem;
+  color: var(--ink-3);
+  font-style: italic;
 }
 .need-answer {
   margin: 2.8rem 0 1rem;
@@ -1527,30 +1589,38 @@ footer {
 <!-- ═════════ NEED ═════════ -->
 <section id="need">
   <div class="wrap">
-    <div class="need-intro">
-    <div class="eyebrow">why you can't start</div>
-    <h2 class="need-q">
-      <span class="qmark">Q.</span>なぜ、起業に<br>
-      <span class="brand">踏み出せない</span>のか？
-    </h2>
-    <div class="need-body">
-      <p>
-        やってみたい気持ちはある。アイデアもある。本も読んだ。SNS で発信もしている。動画教材だって、何本も観た。それでも、最初の一歩が出ない。
-      </p>
-      <div class="need-quote">
-        「もう少し準備が整ってから。」<br>
-        「タイミングがあえばいつか。」<br>
-        「いまは余裕がないから来年こそ。」
+    <div class="need-grid">
+      <div>
+        <div class="eyebrow">why you can't start</div>
+        <h2 class="need-q">
+          <span class="qmark">Q.</span>なぜ、起業に<br>
+          <span class="brand">踏み出せない</span>のか？
+        </h2>
+        <div class="need-body">
+          <p>
+            やってみたい気持ちはある。アイデアもある。本も読んだ。SNS で発信もしている。動画教材だって、何本も観た。それでも、最初の一歩が出ない。
+          </p>
+          <p>
+            そうやって、何年も「いつか」を先送りにしてきた人を、これまで何人も見てきました。でも、本人もうすうす気付いているはずです。準備の不足でも、タイミングの問題でも、余裕のなさでもないことに。
+          </p>
+          <h3 class="need-answer">
+            <span class="label">A.</span>踏み出せない理由は、<br class="br-sp">たった一つ。<br>
+            <span class="punch">失敗が怖いから。</span>
+          </h3>
+          <p>そして、「失敗が怖い」を分解すると、3 つの不安に集約されます。</p>
+        </div>
       </div>
-      <p>
-        そうやって、何年も「いつか」を先送りにしてきた人を、これまで何人も見てきました。でも、本人もうすうす気付いているはずです。準備の不足でも、タイミングの問題でも、余裕のなさでもないことに。
-      </p>
-      <h3 class="need-answer">
-        <span class="label">A.</span>踏み出せない理由は、<br class="br-sp">たった一つ。<br>
-        <span class="punch">失敗が怖いから。</span>
-      </h3>
-      <p>そして、「失敗が怖い」を分解すると、3 つの不安に集約されます。</p>
-    </div>
+
+      <aside class="need-aside">
+        <div class="need-aside-tag">excuse log</div>
+        <div class="need-aside-title">よくある「先送り」の合言葉</div>
+        <ol class="need-excuses">
+          <li>「もう少し準備が整ってから。」</li>
+          <li>「タイミングがあえばいつか。」</li>
+          <li>「いまは余裕がないから来年こそ。」</li>
+        </ol>
+        <div class="need-aside-foot">心当たり、ありませんか？</div>
+      </aside>
     </div>
 
     <div class="fears-grid">
