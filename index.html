@@ -750,6 +750,14 @@ section {
   margin-bottom: 0.5rem;
 }
 .why-fig-num em { font-style: normal; color: var(--brand); }
+.why-fig-num small {
+  font-size: 0.5em;
+  font-weight: 700;
+  color: var(--ink-3);
+  letter-spacing: 0;
+  margin-right: 0.15em;
+  vertical-align: 0.15em;
+}
 .why-fig-label {
   font-family: var(--font-ja);
   font-size: 0.78rem;
@@ -1160,11 +1168,13 @@ section {
 }
 .sns-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.8rem;
   margin-top: 2.6rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (max-width: 900px) { .sns-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .sns-grid { grid-template-columns: 1fr; } }
 .sns-card {
   background: var(--surface);
@@ -1412,6 +1422,14 @@ footer {
 .foot-links a { transition: color 0.2s var(--ease); }
 .foot-links a:hover { color: var(--brand-l); }
 
+/* 改行ヘルパー: 見出しを PC / SP で適切に折り返す */
+.br-pc { display: inline; }
+.br-sp { display: none; }
+@media (max-width: 640px) {
+  .br-pc { display: none; }
+  .br-sp { display: inline; }
+}
+
 /* Stagger fade-in */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
@@ -1495,7 +1513,7 @@ footer {
       </div>
       <div class="viz-stats">
         <div class="viz-stat">
-          <div class="viz-stat-num">0<small>円</small></div>
+          <div class="viz-stat-num"><small>ほぼ</small>0<small>円</small></div>
           <div class="viz-stat-label">初期固定費</div>
         </div>
         <div class="viz-stat">
@@ -1516,7 +1534,7 @@ footer {
 
 <!-- ═════════ NEED ═════════ -->
 <section id="need">
-  <div class="wrap-narrow">
+  <div class="wrap">
     <div class="eyebrow">why you can't start</div>
     <h2 class="need-q">
       <span class="qmark">Q.</span>なぜ、起業に<br>
@@ -1535,7 +1553,7 @@ footer {
         そうやって、何年も「いつか」を先送りにしてきた人を、これまで何人も見てきました。でも、本人もうすうす気付いているはずです。準備の不足でも、タイミングの問題でも、余裕のなさでもないことに。
       </p>
       <h3 class="need-answer">
-        <span class="label">A.</span>踏み出せない理由は、たった一つ。<br>
+        <span class="label">A.</span>踏み出せない理由は、<br class="br-sp">たった一つ。<br>
         <span class="punch">失敗が怖いから。</span>
       </h3>
       <p>そして、「失敗が怖い」を分解すると、3 つの不安に集約されます。</p>
@@ -1593,7 +1611,7 @@ footer {
             <div class="pillar-en">No financial risk</div>
           </div>
         </div>
-        <p class="pillar-desc">初期投資ゼロ、固定費 0 で始める設計。無料ツールだけで MVP を立ち上げる方法を体系化。撤退してもお金は減らない。</p>
+        <p class="pillar-desc">初期投資はほぼゼロ、固定費もほぼ 0 で始める設計。無料ツールだけで MVP を立ち上げる方法を体系化。撤退してもお金はほとんど減らない。</p>
       </article>
       <article class="pillar">
         <div class="pillar-head">
@@ -1625,7 +1643,7 @@ footer {
     <div class="why-grid">
       <div>
         <div class="eyebrow">why this lab</div>
-        <h2 class="h-title">「成功者の話」ではなく、<br><span class="brand">「いま走っている人の型」</span>を。</h2>
+        <h2 class="h-title">「成功者の話」<br class="br-sp">ではなく、<br><span class="brand">「いま走っている<br class="br-sp">人の型」</span>を。</h2>
         <p class="lead">セオリーや過去の成功談ではなく、ラボ主自身が現在進行形でミニマム事業を立ち上げ続けている過程を、再現可能な「型」として体系化しています。</p>
       </div>
       <div>
@@ -1635,7 +1653,7 @@ footer {
             <div class="why-fig-label">painless 設計の軸</div>
           </div>
           <div class="why-fig">
-            <div class="why-fig-num">¥<em>0</em></div>
+            <div class="why-fig-num"><small>ほぼ</small>¥<em>0</em></div>
             <div class="why-fig-label">初期固定費</div>
           </div>
           <div class="why-fig">
@@ -1649,7 +1667,7 @@ footer {
         </div>
         <ul class="why-list">
           <li>本業を辞めずに、平日夜・週末で進められる設計</li>
-          <li>固定費 0 と無料ツールで始められる方法を体系化</li>
+          <li>固定費ほぼ 0 と無料ツールで始められる方法を体系化</li>
           <li>3 ヶ月で撤退 or 拡大を判断するフレーム内蔵</li>
           <li>ラボ並走中の事業のリアル進捗と試行錯誤を共有</li>
         </ul>
@@ -1717,7 +1735,7 @@ footer {
           <div class="chapter-num"><span class="pt">Part</span><span class="n">03</span></div>
           <div>
             <h3 class="chapter-name">MVP 立ち上げ編</h3>
-            <div class="chapter-goal">固定費 0 で MVP を作り、最初の 10 人の顧客と話す。</div>
+            <div class="chapter-goal">固定費ほぼ 0 で MVP を作り、最初の 10 人の顧客と話す。</div>
             <div class="chapter-grid">
               <span class="lab">読む</span><span class="txt">無料ツールだけで作る MVP／LP・SNS・問い合わせ導線の最短セットアップ／最初の 10 人を取る方法</span>
               <span class="lab">使う</span><span class="txt"><em>MVP 設計シート</em>／<em>LP・SNS セットアップ手順チェックリスト</em>／<em>顧客インタビューテンプレ</em></span>
@@ -1774,7 +1792,7 @@ footer {
     <div class="single-edition">
       <div>
         <div class="ed-tag">First Edition · 2026</div>
-        <h3 class="ed-name">失敗しても痛くないミニマム起業<br>完全パッケージ</h3>
+        <h3 class="ed-name">失敗しても痛くない<br class="br-sp">ミニマム起業<br>完全パッケージ</h3>
         <div class="ed-price-big">
           <span class="yen">¥</span>9,800
           <small>買い切り · アップデート無料</small>
@@ -1799,7 +1817,7 @@ footer {
 <section id="samples">
   <div class="wrap">
     <div class="eyebrow">try before you buy</div>
-    <h2 class="h-title">まずは無料で、<br>中身を確かめてください。</h2>
+    <h2 class="h-title">まずは無料で、<br>中身を確かめて<br class="br-sp">ください。</h2>
     <p class="lead">第 1 部の冒頭、ワークシートの抜粋、note の連載。買う前に、本編との相性を確かめられます。</p>
     <div class="samples-grid">
       <a class="sample" href="#">
@@ -1846,21 +1864,9 @@ footer {
 <section id="sns">
   <div class="wrap">
     <div class="eyebrow">follow the journey</div>
-    <h2 class="h-title">ラボの日々を、<br>毎日発信中。</h2>
-    <p class="lead">ガイドの章のエッセンスやラボ並走中の事業のリアル進捗を、SNS で毎日発信しています。</p>
+    <h2 class="h-title">ラボの日々を、<br>発信中。</h2>
+    <p class="lead">ガイドの章のエッセンスやラボ並走中の事業のリアル進捗を、SNS で発信しています。</p>
     <div class="sns-grid">
-      <a class="sns-card sns-card--pending" href="#" aria-disabled="true">
-        <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
-        <div class="sns-name">X</div>
-        <div class="sns-handle">Coming soon</div>
-        <div class="sns-desc">日々の Tips・失敗談・進捗</div>
-      </a>
-      <a class="sns-card sns-card--pending" href="#" aria-disabled="true">
-        <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
-        <div class="sns-name">YouTube</div>
-        <div class="sns-handle">Coming soon</div>
-        <div class="sns-desc">中尺ケーススタディ</div>
-      </a>
       <a class="sns-card" href="https://note.com/painless_lab" target="_blank" rel="noopener">
         <div class="sns-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.42 4.69H3.58A3.59 3.59 0 0 0 0 8.27v7.46a3.59 3.59 0 0 0 3.58 3.58h16.84A3.59 3.59 0 0 0 24 15.73V8.27a3.59 3.59 0 0 0-3.58-3.58zM10.65 16.4H8.21V9.34l-3.18 7.06H3.07V7.6h3.06l2.62 5.95L11.4 7.6h3.05v8.8h-2.43V9.46zm10.28-2.31c0 1.45-1.19 2.31-2.66 2.31-1.65 0-3-.69-3.21-2.59h2.55c.05.5.36.84.71.84.39 0 .54-.27.54-.54V7.6h2.07z"/></svg></div>
         <div class="sns-name">note</div>
