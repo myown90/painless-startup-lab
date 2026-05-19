@@ -530,12 +530,15 @@ section {
   padding: 0 0.45em;
   border-radius: 8px;
 }
+.need-intro {
+  max-width: 45rem;
+  margin: 0 auto;
+}
 .need-body {
   font-family: var(--font-ja);
   font-size: clamp(1rem, 1.3vw, 1.08rem);
   line-height: 2;
   color: var(--ink-2);
-  max-width: 38rem;
 }
 .need-body p { margin-bottom: 1.4rem; }
 .need-quote {
@@ -598,17 +601,6 @@ section {
   border-color: var(--surface-3);
   transform: translateY(-3px);
 }
-.fear-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px; height: 42px;
-  border-radius: 10px;
-  background: var(--brand-soft);
-  color: var(--brand);
-  margin-bottom: 1.2rem;
-}
-.fear-icon svg { width: 22px; height: 22px; }
 .fear-num {
   font-family: var(--font-mono);
   font-size: 0.74rem;
@@ -1535,6 +1527,7 @@ footer {
 <!-- ═════════ NEED ═════════ -->
 <section id="need">
   <div class="wrap">
+    <div class="need-intro">
     <div class="eyebrow">why you can't start</div>
     <h2 class="need-q">
       <span class="qmark">Q.</span>なぜ、起業に<br>
@@ -1558,30 +1551,22 @@ footer {
       </h3>
       <p>そして、「失敗が怖い」を分解すると、3 つの不安に集約されます。</p>
     </div>
+    </div>
 
     <div class="fears-grid">
       <article class="fear-card">
-        <div class="fear-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
         <div class="fear-num">01 / FEAR</div>
         <h4 class="fear-name">お金を失う不安</h4>
         <p class="fear-voice">「初期投資して回収できなかったら、貯金が消える。」</p>
         <p class="fear-desc">ツールを契約し、外注し、広告を打って、何百万も注ぎ込む——そんな起業のイメージが、最初の一歩を重くしている。</p>
       </article>
       <article class="fear-card">
-        <div class="fear-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
         <div class="fear-num">02 / FEAR</div>
         <h4 class="fear-name">時間を無駄にする不安</h4>
         <p class="fear-voice">「1 年やって何にもならなかったら、その時間どうする。」</p>
         <p class="fear-desc">撤退の判断基準を持たないまま走り始めると、ずるずる続けてしまう。そして「もう引き返せない」状態が、最大のリスクになる。</p>
       </article>
       <article class="fear-card">
-        <div class="fear-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        </div>
         <div class="fear-num">03 / FEAR</div>
         <h4 class="fear-name">本業のキャリアを失う不安</h4>
         <p class="fear-voice">「脱サラして失敗したら、もう戻れない。」</p>
